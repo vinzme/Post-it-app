@@ -1,6 +1,8 @@
 <% if logged_in? %>
   <p class='pull-right'>
-    [<%= link_to 'Edit this post', edit_post_path(@post)%>]
+    <% if current_user.username == @post.creator.username %>
+      [<%= link_to 'Edit this post', edit_post_path(@post)%>]
+    <% end %>
   </p>
 <% end %>
 
